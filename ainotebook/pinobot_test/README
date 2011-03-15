@@ -1,0 +1,1 @@
+-Djava.library.path=${workspace_loc:pinobot}/lib/jogl

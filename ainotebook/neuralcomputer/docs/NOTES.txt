@@ -1,0 +1,127 @@
+###########################################################
+# NOTES
+###########################################################
+
+Example CPU notes:
+http://mycpu.selfhost.it/epj03.htm
+
+- 8 bit processor, 8 bit internal and external data bus
+- 16 address lines, 64kb addressable RAM and 64kb addressable ROM memory, 128kb
+addressable memory total
+- Architecture similar to Harvard (separate code and data memory, but only one
+common address and data bus)
+- Maximum processor core speed is around 10 MHz when 74ACxxx gates and fast
+EPROM’s are used, but 8 MHz is guaranteed, and at least 4 MHz can be reached with
+the cheaper 74HCxxx gates. Save operation is still possible with 74HCxxx gates and a
+20MHz oscillator (core frequency approx. 6,7 MHz).
+- 1 maskable hardware interrupt (IRQ)
+- 5 x 8bit general purpose register
+- lookup-table based ALU for maximum speed
+- 61 integrated circuits (55 logic gate IC’s and 6 EPROM’s)
+- User definable microcode, the microcode for a 6502 like CPU is provided
+- Voltage operating range is 4.75V – 5.25V
+- Power consumption is max. 150mA at 5V = 0.75W
+
+More Notes on the ALU:
+
+The unit supports 16 arithmetic operations, where eight operations take two 8-bit-operands and
+eight operations take only one operand. The result of every operation is also 8-bit wide. The
+ALU supports three flags: Carry, Sign and Overflow. Since the ALU is table-based, the
+slowest operation takes only three clock cycles:
+
+Total IC List:
+=================
+
+2 x 74AC00 IC10, IC63  (1)
+1 x 74HC00 IC48 (2)
+1 x 74HC04 IC47  (3)
+4 x 74AC08 IC16, IC29, IC32, IC62  (4)
+1 x 74HC08 IC9 (5)
+1 x 74AC32 IC11  (6)
+5 x 74AC74 IC14, IC15, IC30, IC31, IC64  (7)
+5 x 74HC74 IC12, IC13, IC49, IC50, IC34  (8)
+5 x 74HC138 IC17, IC18, IC19, IC20, IC21 (9)
+1 x 74AC157 IC56  (10)
+6 x 74HC161 IC6, IC7, IC35, IC37, IC39, IC41 (11)
+1 x 74HC245 IC22  (12) 
+8 x 74HC541 IC28, IC36, IC38, IC44, IC46, IC51, IC53, IC65  (13)
+3 x 74AC574 IC4, IC5, IC8  (14)
+14 x 74HC574 IC23, IC24, IC25, IC26, IC27, IC40, IC42, IC43, IC45, IC52, IC54, IC55, IC60, IC61  (15)
+3 x 27C010, 60ns IC1, IC2, IC3  (16)
+1 x 27C64 or 27C256, 100ns IC59  (17)
+2 x 27C801, 100ns IC57, IC58  (18)
+1 x LM393 IC33  (19)
+1 x 10nF C105  (20)
+
+-----------------
+
+2 x 74AC00 IC10, IC63  (1):
+74AC00 - 74ACT00 / Quad 2-Input NAND Gate
+
+1 x 74HC00 IC48 (2):
+74HC00; 74HCT00 / Quad 2-input NAND gate
+
+1 x 74HC04 IC47  (3)
+4 x 74AC08 IC16, IC29, IC32, IC62  (4)
+1 x 74HC08 IC9 (5)
+1 x 74AC32 IC11  (6)
+5 x 74AC74 IC14, IC15, IC30, IC31, IC64  (7)
+5 x 74HC74 IC12, IC13, IC49, IC50, IC34  (8)
+5 x 74HC138 IC17, IC18, IC19, IC20, IC21 (9)
+1 x 74AC157 IC56  (10)
+6 x 74HC161 IC6, IC7, IC35, IC37, IC39, IC41 (11)
+1 x 74HC245 IC22  (12) 
+8 x 74HC541 IC28, IC36, IC38, IC44, IC46, IC51, IC53, IC65  (13)
+3 x 74AC574 IC4, IC5, IC8  (14)
+14 x 74HC574 IC23, IC24, IC25, IC26, IC27, IC40, IC42, IC43, IC45, IC52, IC54, IC55, IC60, IC61  (15)
+3 x 27C010, 60ns IC1, IC2, IC3  (16)
+1 x 27C64 or 27C256, 100ns IC59  (17)
+2 x 27C801, 100ns IC57, IC58  (18)
+1 x LM393 IC33  (19)
+1 x 10nF C105  (20)
+
+
+=================
+
+74HC00 IC48
+74HC04 IC47
+74HC74 IC49, IC50
+74AC157 IC56
+74HC541 IC51, IC53
+74HC574 IC52, IC54, IC55, IC60, IC61
+27C64 -or- 27C256, 100ns IC59
+27C801 -or- 27C080, 100ns IC57, IC58
+100nF C47, C48, C49, C50, C51, C52, C53, C54, C55, C56, C57, C58,
+C59, C60, C61
+10 pin header VA, VB, VC
+16 pin header V0
+20 pin header V5
+
+
+74AC00 IC10
+74AC08 IC16
+74HC08 IC9 Must be a 74HC08
+74AC32 IC11
+74AC74 IC14, IC15
+74HC74 IC12, IC13
+74HC161 IC6, IC7
+74AC574 IC4, IC5, IC8
+27C010 -or- 27C1001, 60ns IC1, IC2, IC3
+100nF C1, C2, C3, C4,
+
+74HC74 IC34
+74HC161 IC35, IC37, IC39, IC41
+74HC541 IC36, IC38, IC44, IC46
+74HC574 IC40, IC42, IC43, IC45
+
+74AC00 IC63
+74AC08 IC29, IC32, IC62
+74AC74 IC31
+74HC74 IC64
+74HC245 IC22
+74HC393 IC30
+74HC541 IC28, IC65
+74HC574 IC23, IC24, IC25, IC26, IC27
+LM393 IC33
+10n C105
+100n C22 - C33, C62 - C65, C100, C101

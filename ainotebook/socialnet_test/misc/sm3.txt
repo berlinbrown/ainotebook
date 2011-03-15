@@ -1,0 +1,38 @@
+.S. semiconductor manufacturers,
+struggling to stem a river of red ink, are increasingly looking
+toward customized designs rather than mass-market chips for
+future profits.
+    The market for customized chips - semiconductors designed
+for a very specific application or product - is expected to
+expand by 25 to 30 pct this year, compared with only about six
+pct for the entire integrated circuit industry.
+     Market researcher Dataquest Inc estimates that sales of
+customized chips totaled about 4.5 billion dlrs worldwide last
+year, about 12 pct of the total chip market. By 1990, however,
+customized chips are expected to represent a 12 billion to 15
+billion dlr market, about 25 pct of total chip sales.
+    More important for their vendors, because they are not a
+standard design customized chips represent a sellers' market,
+and prices and profit margins can be set accordingly.
+    High volume memory chips have become "a perfect commodity
+market," Robert Brodersen, a professor of electrical
+engineering at the University of California at Berkeley, told
+an industry forum.
+    "The product is interchangeable between one manufacturer
+and another and customers base their buying decisions almost
+entirely on price," Brodersen said. 
+    He predicted that, in the next few years, only a handful of
+the world's largest chip manufacturers (most of them Japanese)
+will produce memory chips, the standard electronic component
+found in everything from digital watches to computers. "The
+rest of the industry just won't be involved."
+    Last week's International Solid State Circuits Conference,
+the chip industry's annual forum for new developments, seemed
+to support Brodersen's prediction.
+     Of the 116 papers presented at the conference, some 40 pct
+had Japanese authors, the first time they have outnumberd the
+United States. Most of the Japanese chip designs were in the
+memory category, including Nippon Telephone and Telegraph Co's
+attention-grabbing 16 mln bit dynamic random access memory
+(dram) chip, 16 times more powerful than anything now
+available.

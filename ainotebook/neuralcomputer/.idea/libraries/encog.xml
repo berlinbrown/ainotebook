@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="encog">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/encog/slf4j-jdk14-1.5.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/encog/slf4j-api-1.5.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/encog/hsqldb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/encog/junit-4.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/encog/JOCL-0.1.3a-beta.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

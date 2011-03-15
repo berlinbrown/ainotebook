@@ -1,0 +1,6 @@
+#!/bin/sh
+
+javac *.java
+
+java -jar engine/Tron.jar maps/playground.txt "java MyTronBot" "java -jar example_bots/RandomBot.jar" 
+

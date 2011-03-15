@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- **************************************************************** -->
+<!-- 
+     build.xml - build for octane server
+     Copyright (c) 2009 - Berlin Research, Botnode.com, Berlin Brown
+     Updated: 10/30/2009
+ -->
+<!-- **************************************************************** -->
+<project name="Build File" default="compile" basedir=".">
+
+    <property file="build.properties" /> 
+    <property name="build.dir"          value="${basedir}/build" />
+    <property name="build.classes.dir"  value="${basedir}/build/classes" />
+    <property name="src.dir"            value="${basedir}/src" />
+    <property name="scala.src.dir"      value="${basedir}/scala/src" />
+    <property name="lib.dir"            value="${basedir}/lib" />
+	
+<target name="help" description="Initialization">
+	        <tstamp/>
+			<echo>
+ Additional Targets and Usage:
+ -----------------
+
+</echo>
+	</target>
+	
+    <path id="classpath">
+    	<pathelement location="${lib.dir}" />     	    	
+    	<pathelement location="${lib.dir}/antlr-2.7.7.jar" />
+    	<pathelement location="${lib.dir}/jogl/jogl.jar" />
+    	<pathelement location="${lib.dir}/jogl/gluegen-rt.jar" />
+    	<pathelement location="${lib.dir}/jogl" />
+    </path>
+
+    <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
+    <!-- Target: Prepare -->
+    <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
+    <target name="prepare" depends="help">
+        <mkdir dir="${build.dir}" />
+        <mkdir dir="${build.classes.dir}" />
+    	<mkdir dir="${build.classes.dir}/conf" />
+    </target>
+
+    <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
+    <!-- Target: Compile -->
+    <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
+    <target name="compile" depends="prepare">
+        <javac deprecation="true"
+        		verbose="false"
+        		debug="true"
+                target="1.5"
+                srcdir="${src.dir}"
+                destdir="${build.classes.dir}">
+        	<!-- Modify with the packages that need to be included
+        	     in the build -->
+        	<include name="org/**/*.java" />
+            <classpath refid="classpath"/>            
+        </javac>    	
+    </target>
+	    	
+    <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
+    <!-- Target: Run -->
+    <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
+    <target name="basic" depends="compile">
+    	<java classname="org.bresearch.jogl.Basic" fork="true">
+			<classpath refid="classpath" />
+			<classpath>
+				<pathelement location="${basedir}" />
+				<pathelement location="${build.classes.dir}" />
+			</classpath>    	            			           
+		</java>
+    </target>	
+	
+	<!-- ************************************************************ -->
+    <!-- Target: Build -->
+    <!-- ************************************************************ -->
+    <target name="jar" depends="compile">
+    	<jar destfile="${build.dir}/scanhttpinfo.jar">
+    	    <fileset dir="${build.classes.dir}" includes="**/*.class" />    		    		    	    	
+    		<manifest>
+    			<attribute name="Built-By" value="Berlin Brown (Ant 1.7.0)" />			
+				<attribute name="Implementation-Vendor"   value="Berlin Research" />
+				<attribute name="Implementation-Title"    value="Octane Server"   />
+				<attribute name="Implementation-Version"  value="0.6.20091030"    />
+			</manifest>
+		</jar>    		
+    </target>
+
+	<!-- ************************************************************ -->
+	<!-- Main Clean -->
+	<!-- ************************************************************ -->
+    <target name="clean">
+        <delete dir="${build.dir}" />
+    </target>
+
+</project>
